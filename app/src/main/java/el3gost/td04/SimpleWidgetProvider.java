@@ -44,12 +44,6 @@ public class SimpleWidgetProvider extends AppWidgetProvider {
         // Prepare widget views
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget);
 
-        Intent intent = new Intent(context, SimpleWidgetProvider.class);
-        intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetId);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        views.setOnClickPendingIntent(R.id.actionButton, pendingIntent);
-
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
 }
